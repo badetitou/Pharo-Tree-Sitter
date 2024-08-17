@@ -21,3 +21,9 @@ TSParser >> language [
 
 	^ TSLibrary uniqueInstance ts_parser_language: self
 ]
+
+{ #category : 'accessing' }
+TSParser >> language: aTSLanguage [
+
+	^ TSLibrary uniqueInstance ts_parser: self _set_language: aTSLanguage
+]

@@ -14,6 +14,22 @@ TSLibrary >> ts_language_version: aTSLanguage [
 ]
 
 { #category : 'parser' }
+TSLibrary >> ts_parser: aParser _parse_string: aString ofLength: length usingOldTree: anOldTree [
+	
+	"use `ExternalAddress null` if there is no old tree existing for now"
+	
+	^ self ffiCall:
+		  'TSTree * ts_parser_parse_string ( TSParser * aParser, TSTree * anOldTree, char * aString, uint32 length )'
+]
+
+{ #category : 'parser' }
+TSLibrary >> ts_parser: aTSParser _set_language: aTSLanguage [
+
+	^ self ffiCall:
+		  'bool ts_parser_set_language(TSParser * aTSParser, TSLanguage * aTSLanguage)'
+]
+
+{ #category : 'parser' }
 TSLibrary >> ts_parser_delete: aTSParser [
 
 	^ self ffiCall:
