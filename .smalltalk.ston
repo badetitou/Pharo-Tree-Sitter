@@ -1,0 +1,18 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'TreeSitter',
+      #directory : 'src',
+      #load : [ 'tests' ],
+      #platforms : [ #pharo ],
+      #onConflict : #useIncoming,
+      #onUpgrade : #useIncoming
+    }
+  ],
+  #testing : {
+    #coverage : {
+      #packages : [ 'TreeSitter.*' ],
+      #format : #lcov
+    }
+  }
+}

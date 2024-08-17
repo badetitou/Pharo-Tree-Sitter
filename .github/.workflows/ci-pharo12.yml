@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Pharo12
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the development branch
+on:
+  push:
+    branches: 
+      - main
+      - v*
+      - master
+  pull_request:
+    branches:    
+      - main
+      - v*
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: Casino
+    strategy:
+      matrix:
+        smalltalk: [ Pharo64-12 ]
+    name: ${{ matrix.smalltalk }}
+    steps:
+    
+      - uses: ConorMacBride/install-package@v1
+        with:
+          brew: tree-sitter tree-sitter-python
+          brew-cask: tree-sitter tree-sitter-python
+          apt: tree-sitter tree-sitter-python
+          choco: tree-sitter tree-sitter-python
+
+      - uses: actions/checkout@v2
+
+      - uses: hpi-swa/setup-smalltalkCI@v1
+        with:
+          smalltalk-image: ${{ matrix.smalltalk }}
+      
+      - run: smalltalkci -s ${{ matrix.smalltalk }}
+        shell: bash
+        timeout-minutes: 15
