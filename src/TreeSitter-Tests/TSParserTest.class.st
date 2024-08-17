@@ -51,3 +51,21 @@ TSParserTest >> testRootOfSimplePythonHasOneChild [
 		        usingOldTree: ExternalAddress null.
 	self assert: tree rootNode childCount equals: 1
 ]
+
+{ #category : 'as yet unclassified' }
+TSParserTest >> testRootOfSimplePythonHasOneNamedChild [
+
+	| pythonLanguage string tree |
+	parser := TSParser new.
+	pythonLanguage := TSLanguage python.
+	parser language: pythonLanguage.
+
+	string := 'print("Hello, I''m Python!")'.
+
+	tree := TSLibrary uniqueInstance
+		        ts_parser: parser
+		        _parse_string: string
+		        ofLength: string size
+		        usingOldTree: ExternalAddress null.
+	self assert: tree rootNode namedChildCount equals: 1
+]

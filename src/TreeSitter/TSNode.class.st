@@ -56,6 +56,12 @@ TSNode >> isNamed [
 ]
 
 { #category : 'api' }
+TSNode >> namedChildCount [
+
+	^ TSLibrary uniqueInstance ts_node_named_child_count: self
+]
+
+{ #category : 'api' }
 TSNode >> symbol [
 
 	^ TSLibrary uniqueInstance ts_node_symbol: self
