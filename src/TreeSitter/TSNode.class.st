@@ -79,6 +79,12 @@ TSNode >> context3: anObject [
 	handle unsignedLongAt: OFFSET_CONTEXT3 put: anObject
 ]
 
+{ #category : 'api' }
+TSNode >> endPoint [
+
+	^ TSLibrary uniqueInstance ts_node_end_point: self
+]
+
 { #category : 'accessing - structure variables' }
 TSNode >> id [
 	"This method was automatically generated"
@@ -110,6 +116,12 @@ TSNode >> namedChildAt: childIndex [
 TSNode >> namedChildCount [
 
 	^ TSLibrary uniqueInstance ts_node_named_child_count: self
+]
+
+{ #category : 'api' }
+TSNode >> startPoint [
+
+	^ TSLibrary uniqueInstance ts_node_start_point: self
 ]
 
 { #category : 'api' }

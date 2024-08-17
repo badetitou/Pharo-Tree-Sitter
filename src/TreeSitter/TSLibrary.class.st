@@ -27,6 +27,12 @@ TSLibrary >> ts_node_child_count: aTSNode [
 ]
 
 { #category : 'node' }
+TSLibrary >> ts_node_end_point: aTSNode [
+
+	^ self ffiCall: 'TSPoint ts_node_end_point(TSNode aTSNode)'
+]
+
+{ #category : 'node' }
 TSLibrary >> ts_node_is_named: aTSNode [
 
 	^ self ffiCall: 'bool ts_node_is_named(TSNode aTSNode)'
@@ -36,6 +42,12 @@ TSLibrary >> ts_node_is_named: aTSNode [
 TSLibrary >> ts_node_named_child_count: aTSNode [
 
 	^ self ffiCall: 'uint32 ts_node_named_child_count(TSNode aTSNode)'
+]
+
+{ #category : 'node' }
+TSLibrary >> ts_node_start_point: aTSNode [
+
+	^ self ffiCall: 'TSPoint ts_node_start_point(TSNode aTSNode)'
 ]
 
 { #category : 'node' }
