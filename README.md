@@ -21,11 +21,7 @@ parser language: pythonLanguage.
 
 string := 'print("Hello, I''m Python!") # comment'.
 
-tree := TSLibrary uniqueInstance
-	ts_parser: parser
-	_parse_string: string
-	ofLength: string size
-	usingOldTree: ExternalAddress null.
+tree := parser parseString: string.
 
 tree rootNode
 ```
