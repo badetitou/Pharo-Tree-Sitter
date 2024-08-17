@@ -19,6 +19,12 @@ TSNode class >> fieldsDesc [
 	)
 ]
 
+{ #category : 'api' }
+TSNode >> childCount [
+
+	^ TSLibrary uniqueInstance ts_node_child_count: self
+]
+
 { #category : 'accessing - structure variables' }
 TSNode >> context [
 	"This method was automatically generated"

@@ -29,5 +29,25 @@ TSParserTest >> tearDown [
 { #category : 'as yet unclassified' }
 TSParserTest >> testLanguageVersion [
 
-	self should: [parser language version] raise: TSNullPointerException
+	self
+		should: [ parser language version ]
+		raise: TSNullPointerException
+]
+
+{ #category : 'as yet unclassified' }
+TSParserTest >> testRootOfSimplePythonHasOneChild [
+
+	| pythonLanguage string tree |
+	parser := TSParser new.
+	pythonLanguage := TSLanguage python.
+	parser language: pythonLanguage.
+
+	string := 'print("Hello, I''m Python!")'.
+
+	tree := TSLibrary uniqueInstance
+		        ts_parser: parser
+		        _parse_string: string
+		        ofLength: string size
+		        usingOldTree: ExternalAddress null.
+	self assert: tree rootNode childCount equals: 1
 ]

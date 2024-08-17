@@ -16,7 +16,7 @@ TSLibrary >> ts_language_version: aTSLanguage [
 { #category : 'node' }
 TSLibrary >> ts_node_child_count: aTSNode [
 
-	^ self ffiCall: 'uint32_t ts_node_child_count(TSNode aTSNode)'
+	^ self ffiCall: 'uint32 ts_node_child_count(TSNode aTSNode)'
 ]
 
 { #category : 'node' }

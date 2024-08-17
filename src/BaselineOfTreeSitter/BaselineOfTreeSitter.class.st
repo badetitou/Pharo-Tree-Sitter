@@ -1,0 +1,27 @@
+Class {
+	#name : 'BaselineOfTreeSitter',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfTreeSitter',
+	#package : 'BaselineOfTreeSitter'
+}
+
+{ #category : 'baselines' }
+BaselineOfTreeSitter >> baseline: spec [
+
+	<baseline>
+	spec for: #common do: [
+		self defineDependencies: spec.
+		self definePackages: spec.
+		self defineGroups: spec ]
+]
+
+{ #category : 'baselines' }
+BaselineOfTreeSitter >> definePackages: spec [
+
+	spec
+		package: 'TreeSitter';
+		package: 'TreeSitter-Tests'
+		with: [ spec requires: #( 'TreeSitter' 'TreeSitter-Python' ) ];
+		package: 'TreeSitter-Python'
+		with: [ spec requires: #( 'TreeSitter' ) ]
+]
