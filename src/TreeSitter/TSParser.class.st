@@ -27,3 +27,13 @@ TSParser >> language: aTSLanguage [
 
 	^ TSLibrary uniqueInstance ts_parser: self _set_language: aTSLanguage
 ]
+
+{ #category : 'accessing' }
+TSParser >> parseString: aString [
+
+	^ TSLibrary uniqueInstance
+		  ts_parser: self
+		  _parse_string: aString
+		  ofLength: aString size
+		  usingOldTree: ExternalAddress null
+]
