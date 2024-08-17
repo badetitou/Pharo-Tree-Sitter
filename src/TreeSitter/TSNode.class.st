@@ -2,7 +2,10 @@ Class {
 	#name : 'TSNode',
 	#superclass : 'FFIStructure',
 	#classVars : [
-		'OFFSET_CONTEXT',
+		'OFFSET_CONTEXT0',
+		'OFFSET_CONTEXT1',
+		'OFFSET_CONTEXT2',
+		'OFFSET_CONTEXT3',
 		'OFFSET_ID',
 		'OFFSET_TREE'
 	],
@@ -13,7 +16,10 @@ Class {
 { #category : 'field definition' }
 TSNode class >> fieldsDesc [
 	^ #(
-	uint32 context;
+	uint32 context0;
+	uint32 context1;
+	uint32 context2;
+	uint32 context3;
   	void * id;
   	TSTree * tree;
 	)
@@ -26,15 +32,51 @@ TSNode >> childCount [
 ]
 
 { #category : 'accessing - structure variables' }
-TSNode >> context [
+TSNode >> context0 [
 	"This method was automatically generated"
-	^handle unsignedLongAt: OFFSET_CONTEXT
+	^handle unsignedLongAt: OFFSET_CONTEXT0
 ]
 
 { #category : 'accessing - structure variables' }
-TSNode >> context: anObject [
+TSNode >> context0: anObject [
 	"This method was automatically generated"
-	handle unsignedLongAt: OFFSET_CONTEXT put: anObject
+	handle unsignedLongAt: OFFSET_CONTEXT0 put: anObject
+]
+
+{ #category : 'accessing - structure variables' }
+TSNode >> context1 [
+	"This method was automatically generated"
+	^handle unsignedLongAt: OFFSET_CONTEXT1
+]
+
+{ #category : 'accessing - structure variables' }
+TSNode >> context1: anObject [
+	"This method was automatically generated"
+	handle unsignedLongAt: OFFSET_CONTEXT1 put: anObject
+]
+
+{ #category : 'accessing - structure variables' }
+TSNode >> context2 [
+	"This method was automatically generated"
+	^handle unsignedLongAt: OFFSET_CONTEXT2
+]
+
+{ #category : 'accessing - structure variables' }
+TSNode >> context2: anObject [
+	"This method was automatically generated"
+	handle unsignedLongAt: OFFSET_CONTEXT2 put: anObject
+]
+
+{ #category : 'accessing - structure variables' }
+TSNode >> context3 [
+	"This method was automatically generated"
+	^handle unsignedLongAt: OFFSET_CONTEXT3
+]
+
+{ #category : 'accessing - structure variables' }
+TSNode >> context3: anObject [
+	"This method was automatically generated"
+	handle unsignedLongAt: OFFSET_CONTEXT3 put: anObject
 ]
 
 { #category : 'accessing - structure variables' }
@@ -53,6 +95,15 @@ TSNode >> id: anObject [
 TSNode >> isNamed [
 
 	^ TSLibrary uniqueInstance ts_node_is_named: self
+]
+
+{ #category : 'api' }
+TSNode >> namedChildAt: childIndex [
+	"starting at 0"
+
+	^ TSLibrary uniqueInstance
+		  ts_node: self
+		  _named_child_count: childIndex - 1
 ]
 
 { #category : 'api' }

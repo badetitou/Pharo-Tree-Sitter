@@ -14,6 +14,13 @@ TSLibrary >> ts_language_version: aTSLanguage [
 ]
 
 { #category : 'node' }
+TSLibrary >> ts_node: aTSNode _named_child_count: child_index [
+
+	^ self ffiCall:
+		  'TSNode ts_node_named_child(TSNode aTSNode, uint32 child_index)'
+]
+
+{ #category : 'node' }
 TSLibrary >> ts_node_child_count: aTSNode [
 
 	^ self ffiCall: 'uint32 ts_node_child_count(TSNode aTSNode)'
@@ -34,7 +41,7 @@ TSLibrary >> ts_node_named_child_count: aTSNode [
 { #category : 'node' }
 TSLibrary >> ts_node_symbol: aTSNode [
 
-	^ self ffiCall: 'int ts_node_symbol(TSNode aTSNode)'
+	^ self ffiCall: 'uint16 ts_node_symbol(TSNode aTSNode)'
 ]
 
 { #category : 'node' }
