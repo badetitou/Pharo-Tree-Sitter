@@ -47,7 +47,7 @@ TSLibrary >> ts_node_symbol: aTSNode [
 { #category : 'node' }
 TSLibrary >> ts_node_type: aTSNode [
 
-	^ self ffiCall: 'char * ts_node_type(TSNode aTSNode)'
+	^ self ffiCall: 'const char * ts_node_type(TSNode aTSNode)'
 ]
 
 { #category : 'parser' }
