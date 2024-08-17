@@ -16,6 +16,18 @@ BaselineOfTreeSitter >> baseline: spec [
 ]
 
 { #category : 'baselines' }
+BaselineOfTreeSitter >> defineDependencies: spec [
+
+	
+]
+
+{ #category : 'baselines' }
+BaselineOfTreeSitter >> defineGroups: spec [
+
+	
+]
+
+{ #category : 'baselines' }
 BaselineOfTreeSitter >> definePackages: spec [
 
 	spec
@@ -23,5 +35,7 @@ BaselineOfTreeSitter >> definePackages: spec [
 		package: 'TreeSitter-Tests'
 		with: [ spec requires: #( 'TreeSitter' 'TreeSitter-Python' ) ];
 		package: 'TreeSitter-Python'
+		with: [ spec requires: #( 'TreeSitter' ) ];
+		package: 'TreeSitter-Spec'
 		with: [ spec requires: #( 'TreeSitter' ) ]
 ]
