@@ -13,6 +13,30 @@ TSLibrary >> ts_language_version: aTSLanguage [
 		  'uint32 ts_language_version(TSLanguage * aTSLanguage)'
 ]
 
+{ #category : 'node' }
+TSLibrary >> ts_node_child_count: aTSNode [
+
+	^ self ffiCall: 'uint32_t ts_node_child_count(TSNode aTSNode)'
+]
+
+{ #category : 'node' }
+TSLibrary >> ts_node_is_named: aTSNode [
+
+	^ self ffiCall: 'bool ts_node_is_named(TSNode aTSNode)'
+]
+
+{ #category : 'node' }
+TSLibrary >> ts_node_symbol: aTSNode [
+
+	^ self ffiCall: 'int ts_node_symbol(TSNode aTSNode)'
+]
+
+{ #category : 'node' }
+TSLibrary >> ts_node_type: aTSNode [
+
+	^ self ffiCall: 'char * ts_node_type(TSNode aTSNode)'
+]
+
 { #category : 'parser' }
 TSLibrary >> ts_parser: aParser _parse_string: aString ofLength: length usingOldTree: anOldTree [
 	
@@ -48,6 +72,12 @@ TSLibrary >> ts_parser_new [
 
 	^ self ffiCall:
 		  'TSParser * ts_parser_new ()'
+]
+
+{ #category : 'tree' }
+TSLibrary >> ts_tree_root_node: aTSTree [
+
+	^ self ffiCall: 'TSNode ts_tree_root_node(TSTree * aTSTree)'
 ]
 
 { #category : 'accessing - platform' }
