@@ -102,19 +102,25 @@ TSLibrary >> ts_parser_new [
 { #category : 'cursor' }
 TSLibrary >> ts_tree_cursor_current_field_name: aTSTreeCursor [ 
 
-	^ self ffiCall: 'char * ts_tree_cursor_current_node(TSTreeCursor * aTSTreeCursor)'
+	^ self ffiCall: 'char * ts_tree_cursor_current_field_name(TSTreeCursor * aTSTreeCursor)'
 ]
 
 { #category : 'cursor' }
 TSLibrary >> ts_tree_cursor_current_node: aTSTreeCursor [ 
 
-	^ self ffiCall: 'TSNode ts_tree_cursor_current_node(TSTreeCursor * aTSTreeCursor) '
+	^ self ffiCall: 'TSNode ts_tree_cursor_current_node(const TSTreeCursor * aTSTreeCursor) '
 ]
 
 { #category : 'cursor' }
 TSLibrary >> ts_tree_cursor_goto_first_child: aTSTreeCursor [ 
 
-	^ self ffiCall: 'Boolean ts_tree_cursor_goto_first_child(TSTreeCursor aTSTreeCursor)'
+	^ self ffiCall: 'bool ts_tree_cursor_goto_first_child(TSTreeCursor * aTSTreeCursor)'
+]
+
+{ #category : 'cursor' }
+TSLibrary >> ts_tree_cursor_goto_last_child: aTSTreeCursor [ 
+
+	^ self ffiCall: 'bool ts_tree_cursor_goto_last_child(TSTreeCursor * aTSTreeCursor)'
 ]
 
 { #category : 'cursor' }
