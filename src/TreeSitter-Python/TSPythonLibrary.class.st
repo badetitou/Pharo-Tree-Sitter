@@ -17,3 +17,9 @@ TSPythonLibrary >> unix64LibraryName [
 
 	^ FFIUnix64LibraryFinder findAnyLibrary: #( 'libtree-sitter-python.so' )
 ]
+
+{ #category : 'accessing - platform' }
+TSPythonLibrary >> win32LibraryName [
+
+	^ FFIWindowsLibraryFinder findAnyLibrary: #('python.dll')
+]

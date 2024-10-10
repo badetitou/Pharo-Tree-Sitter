@@ -1,3 +1,21 @@
+"
+# Installation process
+
+## For windows
+
+```{language=bash}
+# assuming git, gcc, cmake, ninja installed via scoop
+git clone https://github.com/tree-sitter/tree-sitter
+git fetch origin v0.24.3
+git checkout v0.24.3
+cd tree-sitter
+cd lib
+mkdir build
+cd build
+cmake -G Ninja ..
+ninja
+```
+"
 Class {
 	#name : 'TSParser',
 	#superclass : 'FFIOpaqueObject',

@@ -111,3 +111,9 @@ TSLibrary >> unix64LibraryName [
 
 	^ FFIUnix64LibraryFinder findAnyLibrary: #( 'libtree-sitter.so' )
 ]
+
+{ #category : 'accessing - platform' }
+TSLibrary >> win32LibraryName [
+
+	^ FFIWindowsLibraryFinder findAnyLibrary: #('libtree-sitter.dll')
+]
