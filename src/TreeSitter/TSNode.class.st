@@ -124,6 +124,13 @@ TSNode >> namedChildCount [
 	^ TSLibrary uniqueInstance ts_node_named_child_count: self
 ]
 
+{ #category : 'printing' }
+TSNode >> printOn: aStream [
+
+	super printOn: aStream.
+	self isNamed ifTrue: [ aStream << ' (' << self type << ')' ]
+]
+
 { #category : 'api' }
 TSNode >> startPoint [
 
