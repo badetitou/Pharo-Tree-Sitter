@@ -99,6 +99,42 @@ TSLibrary >> ts_parser_new [
 		  'TSParser * ts_parser_new ()'
 ]
 
+{ #category : 'cursor' }
+TSLibrary >> ts_tree_cursor_current_field_name: aTSTreeCursor [ 
+
+	^ self ffiCall: 'char * ts_tree_cursor_current_node(TSTreeCursor * aTSTreeCursor)'
+]
+
+{ #category : 'cursor' }
+TSLibrary >> ts_tree_cursor_current_node: aTSTreeCursor [ 
+
+	^ self ffiCall: 'TSNode ts_tree_cursor_current_node(TSTreeCursor * aTSTreeCursor) '
+]
+
+{ #category : 'cursor' }
+TSLibrary >> ts_tree_cursor_goto_first_child: aTSTreeCursor [ 
+
+	^ self ffiCall: 'Boolean ts_tree_cursor_goto_first_child(TSTreeCursor aTSTreeCursor)'
+]
+
+{ #category : 'cursor' }
+TSLibrary >> ts_tree_cursor_goto_next_sibling: aTSTreeCursor [ 
+
+	^ self ffiCall: 'bool ts_tree_cursor_goto_next_sibling(TSTreeCursor * aTSTreeCursor)'
+]
+
+{ #category : 'cursor' }
+TSLibrary >> ts_tree_cursor_goto_parent: aTSTreeCursor [ 
+
+	^ self ffiCall: 'bool ts_tree_cursor_goto_parent(TSTreeCursor * aTSTreeCursor)'
+]
+
+{ #category : 'cursor' }
+TSLibrary >> ts_tree_cursor_new: aTSNode [
+
+	^ self ffiCall: 'TSTreeCursor ts_tree_cursor_new (TSNode aTSNode)'
+]
+
 { #category : 'tree' }
 TSLibrary >> ts_tree_root_node: aTSTree [
 

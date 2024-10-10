@@ -80,6 +80,12 @@ TSNode >> context3: anObject [
 ]
 
 { #category : 'api' }
+TSNode >> cursor [
+
+	^ TSLibrary uniqueInstance ts_tree_cursor_new: self
+]
+
+{ #category : 'api' }
 TSNode >> endPoint [
 
 	^ TSLibrary uniqueInstance ts_node_end_point: self
